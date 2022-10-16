@@ -5,4 +5,5 @@
 *.fls
 *.log
 *.out
-*.synctez.gz
+*.synctex.gz
+*.sagetex.sage
