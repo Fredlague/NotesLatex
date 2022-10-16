@@ -3,8 +3,8 @@
 ## Méthode pour un nouveau cours
 - Créer sur GitHub SIGXXXX_Latex
 - cd dans SIGXXXX
-- mkdir SIGXXXX_Latex
-- cd SIGXXXX_Latex
+- Créer LatexFiles
+- cd dans LatexFiles
 - git init
 - git config core.sparseCheckout true
 - git remote add -f origin https://github.com/Fredlague/NotesLatex.git
