@@ -1,1 +1,1 @@
-# Notes et devoirs PHS8230
+# Notes PHS8230
