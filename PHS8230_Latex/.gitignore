@@ -1,6 +1,6 @@
 # Ignorer les fichiers de builds de Latex
 
-mainNotes_PHS8230
+mainNotes_PHS8230.**
 !mainNotes_PHS8230.tex
 !mainNotes_PHS8230.synctex.gz
 !mainNotes_PHS8230.pdf
