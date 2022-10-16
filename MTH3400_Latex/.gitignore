@@ -1,0 +1,8 @@
+# Ignore les build Latex
+
+*.aux
+*.fdb_latexmek
+*.fls
+*.log
+*.out
+*.synctez.gz
