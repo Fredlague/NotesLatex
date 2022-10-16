@@ -1,6 +1,6 @@
-#Notes de Cours et Devoirs Latex
+# Notes de Cours et Devoirs Latex
 
-##Méthode pour un nouveau cours
+## Méthode pour un nouveau cours
 - Créer sur GitHub SIGXXXX_Latex
 - cd dans SIGXXXX
 - mkdir SIGXXXX_Latex
