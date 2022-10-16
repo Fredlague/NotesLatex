@@ -9,4 +9,4 @@
 - git config core.sparseCheckout true
 - git remote add -f origin https://github.com/Fredlague/NotesLatex.git
 - echo "SIGXXXX_Latex/*" > .git/info/sparse-checkout
-- git checkout master
+- git checkout main
