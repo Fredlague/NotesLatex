@@ -1,0 +1,98 @@
+\section{\textbf{Annexe A: Logique, Ensembles et Fonctions}}
+\renewcommand{\thesection}{A}
+\subsection*{\textbf{RELATIONS LOGIQUES}}
+\begin{tabular}{ l l l }
+A$\implies$ B & A implique B & Si A, alors B \\
+& & ou A est une condition suffisante pour B\\
+& & B est une condition nécéssaire à A.\\
+\hline
+A$\iff$ B & A si et seulement si B & Si A, alors B ET si B, alors A
+\end{tabular}  \snote[-5]{Pour montrer $A\implies B$, on peut montrer non$B\implies\;$non$A$}
+
+\begin{itemize}
+    \item La \textbf{réciproque} de $ A \implies B $ est $ B \implies A $\\
+    \item La contraposée de $A \implies B$ est non$(A) \implies$ non $(B)$ 
+\end{itemize}
+\snote{Puisque si j'ai $A$, j'ai nécessairement B, si je n'ai pas $B$, alors c'est que je n'ai pas $A$} 
+\subsection*{\textbf{QUANTIFICATEURS} }
+\begin{itemize}
+    \item La notation $\forall x\;P$ signifie \textbf{pour tout x, on a } $P$. La négation de $\forall x P $ est \[\text{non} (\forall x P) \iff \exists x\; \text{tel que (non} \;P)\]
+    \snote{Si on dit que $\forall x, \; \exists y\;\text{tel que}\;P$ est vrai, la négation est que 
+    $\exists x \; \forall y \; \text{tel que non} (P)$} 
+    \item La notation $\exists x P$ signifie \textbf{il existe} $x$  \textbf{tel que} $P$. La négation de $\exists x\;P$ est 
+    \[
+    \text{non} (\exists x\;P) \iff \forall x\; \text{non}(P)\] 
+\end{itemize}
+
+
+
+\subsection*{\textbf{ENSEMBLES}}
+\begin{definition}
+Un \hypertarget{def:ensemble}{\textbf{ensemble}} est une collection d'objets appelés\label{def:élément} \textbf{élément}. On dit que
+x \textit{appartient} à A;    $x \in A$ 
+\end{definition}
+\begin{definition}
+    Si $A$ et $B$ sont des \hyperlink{def:ensemble}{ensembles}, on dit que $A$ est un \textbf{sous-ensemble} de $B$ si tout élément
+de $A$ est aussi un élément de B; $ a\in B\; \forall\; a\in A$
+\end{definition}
+\begin{definition}
+La \textbf{différence} entre deux ensembles $A \backslash B$  est l'ensemble de éléments $a\in A$ tels que $a\notin B$ 
+\end{definition}
+\marginnote[-2\baselineskip]{\begin{remarque}
+   On peut écrire $A = (A \backslash B) + (A\;\cap B)$ 
+\end{remarque}}
+\begin{definition}
+Le \textbf{produit cartésien} de deux ensembles, noté $A\;\times \; B$ est l'ensemble des paires ordonnées:
+\[
+A\;\times\; B = \left\{(x,y)\;|\; x\in A \; \text{et}\; y\in B \right\} 
+\]
+\end{definition}
+\textbf{Propriétés des ensembles} 
+\begin{table}[htpb]
+    \centering
+    \label{tab:label}
+    \begin{tabular}{c l}
+    $A\cup B = B\cup A\;\text{et}\; B\cap A = A \cap B$ & (Commutativité)\\
+    $A\cup \left( B\cup C \right) = \left( A\cup B \right) \cup C\; \text{et}\;A \cap\left( B\cap C \right) = \left( A\cap B \right) \cap C$ & (Associativité)\\
+    $A\cap \left(  B\cup C \right) = \left( A\cap B \right) \cup \left( A\cap C\right)$ & (Distributivité)\\
+    $\left( A\cup B \right) ^{c} = A^{c}\cap B^{c}\;\text{et} \; \left( A\cap B \right)^{c} = A^{c}\cap B^{c}$ & (Lois de DeMorgan)
+
+    \end{tabular}
+\end{table}
+\newpage    
+\section*{ENSEMBLES QUOTIENTS}
+\begin{definition}
+Une \textbf{relation d'équivalence} sur un ensemble $A$ est un sous-ensemble $R \subset\; A\times A$ tel que 
+$\forall\; a,b,c\in A,$ respectent: \snote{Donc s'agit d'un sous-ensemble de paires d'éléments de A, en remplaçant $(a,b)$ par $a\sim b$}
+\begin{table}[htpb]
+    \centering
+    \begin{tabular}{c l}
+    $a\sim a$ & (Réflectivité)\\
+    $a\sim b \implies b\sim a$ & (Symmétrie)\\
+    Si  $a\sim b$ et $a\sim c$, alors $b\sim b$ & (Transitivité)
+    \end{tabular}
+\end{table}
+\end{definition}
+\begin{definition}
+Une \textbf{classe d'équivalence} $\pi(a)$d'un élément $a \in A$ est l'ensemble des éléments en relation d'équivalence avec $a$:
+\[
+\pi(a) = \left\{ b\in A\;|\;b\sim a \right\} 
+\]
+\end{definition}
+\begin{definition}
+L'\textbf{ensemble quotient}, noté $A / \sim$ d'un ensemble $A$ est l'ensemble des classes d'équivalence des éléments de $A$: 
+\marginnote{\begin{attention} Ne pas confondre avec le groupe quotient, qui est un ensemble de \textit{cosets}.\end{attention}}
+\[
+A / \sim = \left\{ \pi(a) \subset\; A | a\in A \right\} 
+\]
+\end{definition}
+\marginnote{\begin{exemple} alllo test \end{exemple}}
+\begin{definition}
+L'\textbf{ensemble des parties} ou \textbf{power-set} de A, noté $\mathcal{P}(A)$  
+\end{definition}
+
+\begin{exo}
+   
+dpp
+
+\end{exo}
