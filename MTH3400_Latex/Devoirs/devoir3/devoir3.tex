@@ -1,0 +1,172 @@
+%--------------------------INITIALISATION DU DOCUMENT---------------------%
+%											%														%											%
+%                        >>>> Ne pas modifier cette partie <<<<			%
+																																					
+\documentclass[letterpaper,12pt,oneside,final]{book}
+\input{packages}
+\usepackage[]{physics}
+
+
+\begin{document}
+%--------------------------------------------------------------------------------------%
+
+%--------------------------PAGE DE COUVERTURE------------------------------%
+
+% A REMPLIR PAR L'ETUDIANT: 
+
+\newcommand\monPrenom{Frédéric}		%PRENOM
+\newcommand\monNom{Lague}			%NOM
+\newcommand\monMatricule{186131}	%MATRICULE
+\newcommand\monGroupe{01}		%GROUPE
+
+%------------------------ Ne pas modifier la ligne suivante --------------%
+\input{page_couverture}
+%-------------------------------------------------------------------------%
+
+
+%========================= Début des réponses ============================%
+
+
+%-----------------------------QUESTION 1 ----------------------------------%
+\section*{Question 1}
+Soit l'espace vectoriel
+\[
+\ell^{1} = \left\{ x\in \mathbb{R}^{\infty} | \lvert x \rvert _{1} < \infty  \right\} 
+\]
+équipé de la norme additive 
+\[
+\lvert x \rvert _{1} = \sum_{n=1}^{\infty} | x_{n}|.
+\]
+Soit le sous-ensemble
+\begin{equation}\label{setk}
+K = \left\{ x\in \mathbb{R}^{\infty}\;\vert\; \forall n\; \in \; \mathbb{N}_{0}, \;|x_{n}| \leq 2^{-n}\right\}
+\end{equation}
+
+ % A REMPLIR PAR L'ETUDIANT:
+On veut montrer que $K$ est compact dans \(    \ell^{1}    \), donc que toute suite \(    \left( \vb{x}_{n} \right)_{n}   \) 
+possède une sous-suite qui converge dans \(    K   \). C'est-à-dire
+\[
+\forall \varepsilon > 0,\;\exists\;n_{\varepsilon}\;\text{ tel que } n\geq  n_{\varepsilon}\;\text{implique }
+d(\vb{x}_{n},\vb{x}) < \varepsilon 
+\]
+\[
+\iff \lvert\lvert \vb{x_{n}}-\vb{x} \rvert\rvert = \sum_{n=1}^{\infty} \lvert x_{n} \rvert < \varepsilon 
+\]
+
+
+Soit $ \left(\vb{x}_{k}^{(0)} \right)_{k=1}^{\infty} $ une suite d'éléments de $K$. Chaque élément de cette suite est donc 
+une suite de $n$ éléments:
+\[
+\vb{x}_{k}^{(0)}  = \left( (x_{k})_{1},(x_{k})_{2}, (x_{k})_{3},\ldots \right) 
+\]
+Soit \(  x_{k,j}^{(0)}  \) le $j$-ème élément de la suite \( \left(\vb{x}_{k}^{(0)}\right)  \). La suite
+\(
+\left( x_{k,j}^{(0)}\right)_{k=1}^{\infty }
+\)
+est donc bornée entre \( [-\frac{1}{2^{j}}, \frac{1}{2^{j}}] \), car tous les éléments \( \vb{x}_{k}^{(0)}  \) sont dans $K$
+et respectent \ref{setk}. De plus, cette suite est dans $\mathbb{R}^{k}$. \\
+Ainsi, en choisissant \( j=1 \), la suite \( \left( x_{k,1}^{(0)}\right)_{k=1}^{\infty } \) des premières composantes des \( \vb{x}_{k}^{(0)} \) est une suite dans 
+\( [-\frac{1}{2},\frac{1}{2}]\subset \mathbb{R} \).\\
+Par exemple, on peut montrer que la suite \( \left( x_{k,j}^{(0)}\right)_{k=1}^{\infty } \) définie comme
+\begin{equation} \label{suite1}
+    x_{k,j}^{(0)} = \frac{1}{2^{-jk}}
+\end{equation}
+respecte ces critères.\\
+Alors, selon le théorème de Bolzano-Weierstrass, il existe une sous-suite convergente de \(
+    \left( x_{k,1}^{(0)}\right)_{k=1}^{\infty } \\
+    \) pour certains indices $k$. Le Théorème des intervalles emboités indique que cette limite de cette suite, 
+   \( x_{1}^{*} \) ,est dans $[-\frac{1}{2},\frac{1}{2}]$. \\\\
+Appelons \( \left(\vb{x}_{k}^{(1)}\right) \), la suite donc les indices $k$ forment la sous-suite convergente mentionnée ci-haut.
+De plus, choisissons cette suite telle que 
+\[
+\vb{x}^{(1)}_{2k} = \vb{x}^{(0)}_{k}
+\]
+On peut également montrer que la suite définie en \ref{suite1} respecte également ces critères.\\\\
+Similairement, prenons cette fois-ci la suite \( \left(\vb{x}_{k,2}^{(1)}\right)_{k=1}^{\infty } \). Puisque 
+\[
+    \left(\vb{x}_{k}^{(1)}\right)_{k=1}^{\infty } \subset K,
+\]
+cette suite des deuxièmes composantes de \( \left( \vb{x}_{k}^{(1)}\right) \) est donc dans \( [-\frac{1}{2^{2}},\frac{1}{2^{2}}] \in \mathbb{R} \),
+et toujours avec le théorème de Bolzano-Weierstrass, on peut montrer qu'il existe une sous-suite convergente de 
+\( \left( \vb{x}_{k,2}^{(1)}\right)  \) pour certains indices $k$. De plus, la limite de cette suite, \( x_{1}^{*} \) est dans  \( [-\frac{1}{2^{2}},\frac{1}{2^{2}}]\)\\
+Appelons cette sous-suite, \( \vb{x}_{k}^{(2)} \), puis définissions-là telle que 
+\[
+    \vb{x}_{k}^{(2)} = \vb{x}_{2k}^{(1)} = \vb{x}_{4k}^{(2)}.
+\]
+La suite définie en (\ref{suite1}) respecte également tous ces critères.\\\\
+Il est à noter que, puisque la suite des premières composantes de \( \vb{x}_{k}^{(1)} \) est une 
+sous-suite de \( \vb{x}_{k,1}^{(0)} \), qui converge, cette dernière converge également dans $[-\frac{1}{2},\frac{1}{2}]$.
+\\\\
+Finalement, on peut répéter le processus précédent pour la $m$-ième composante de chaque sous-suite précédente
+\(
+\vb{x}_{k,m}^{(m-1)},
+\) en définissant \( \vb{x}_{k}^{(i)} \) telle que 
+\[
+\vb{x}_{k}^{(i)} = \vb{x}_{2^{i}k}^{(0)}. 
+\]
+, dont les $m$ premières composantes convergent vers une valeur \( x_{m}^{*} \in [-\frac{1}{2^{m}}, \frac{1}{2^{m}}] \). \\ 
+
+Avec l'argument diagonal de Cantor, on peut donc choisir la sous-suite dont tous les éléments \(  \)
+sur la "diagonale" \( m,k \) infinie dont tous les éléments convergent. Bien que le nombre de composantes soit infini,
+on peut toujours construire une plus grande infinité de suites infinies afin d'en obtenir une convergente.
+
+Pour terminer, puisque chaque composante $x_n$ de la sous-suite converge dans \( [-\frac{1}{2^{n}},\frac{1}{2^{n}}] \),
+il est clair que cette sous-suite est dans \( K \). Chaque composante $x_n$ respecte 
+\[
+\lvert x_n \rvert \leq 2^{-n} \forall n in \mathbb{N}_{0}
+\]
+Il est également possible de remarquer que la suite définie en (\ref{suite1}) converge vers
+\[
+\vb{x} = (0,0,0,0,\ldots)
+\]
+%-----------------------------QUESTION 2 ----
+
+
+
+
+%-----------------------------QUESTION 3 ----------------------------------%
+\newpage
+\section*{Question 3}
+
+
+\begin{enumerate}[a)]
+
+\item % a)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % b)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % c)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\end{enumerate}
+
+
+%-----------------------------QUESTION 4 ----------------------------------%
+\newpage
+\section*{Question 4}
+
+
+\begin{enumerate}[a)]
+
+\item % a)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % b)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % c)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\end{enumerate}
+
+
+
+\end{document}
