@@ -1,0 +1,282 @@
+%--------------------------INITIALISATION DU DOCUMENT---------------------%
+%											%														%											%
+%                        >>>> Ne pas modifier cette partie <<<<			%
+																																					
+\documentclass[letterpaper,12pt,oneside,final]{book}
+\input{packages}
+
+
+\begin{document}
+%--------------------------------------------------------------------------------------%
+
+%--------------------------PAGE DE COUVERTURE------------------------------%
+
+% A REMPLIR PAR L'ETUDIANT: 
+
+\newcommand\monPrenom{Frédéric}		%PRENOM
+\newcommand\monNom{Laguë}			%NOM
+\newcommand\monMatricule{1986131}	%MATRICULE
+\newcommand\monGroupe{01}		%GROUPE
+
+%------------------------ Ne pas modifier la ligne suivante --------------%
+\input{page_couverture}
+%-------------------------------------------------------------------------%
+
+
+%========================= Début des réponses ============================%
+
+
+%-----------------------------QUESTION 1 ----------------------------------%
+\section*{Question 1}
+
+
+\begin{enumerate}[a)]
+
+\item % a)
+Soit \( V \) un espace vectoriel normé sur un corps \( \mathbb{F}  \). L'espace dual de \( V \) est donc l'ensemble des formes linéaires 
+\( l: V \rightarrow \mathbb{F}   \)
+\[ V^{*} := \left\{l;|\;l(v) \in \mathbb{F},\; \forall v \in V \right\}\]
+ % A REMPLIR PAR L'ETUDIANT:
+On veut montrer que \( E^{\perp} \) est un sous-espace vectoriel de \( V^{*}\). On doit donc montrer 
+i) la fermeture sous l'addition, ii) la fermeture sous la multiplication par un scalaire et iii) l'existence d'un vecteur nul dans \( E^{\perp} \)
+
+\begin{enumerate}[i)]
+\item 
+Soient \( l_{1}, l_{2} \in E^{\perp} \), et \( \vb{v} \in V  \). 
+Puisque \( E^{\perp} \subset V^{*} \)et par linéarité dans \( V^{*} \);
+\begin{equation*}
+\begin{split}
+(l_{1} + l_{2})(\vb{v}) & = l_{1}(\vb{v}) + l_{2}(\vb{v}) \\ 
+& = 0 + 0 = 0
+\end{split}
+\end{equation*}
+On a donc \( l_{1} + l_{2} \in E^{\perp} \)
+\item 
+Soit \( l \in E^{\perp} \), \( \vb{v}\in V \) et \( \alpha \in \mathbb{F}  \). On a, par linéarité dans \( V^{*} \)
+\begin{equation*}
+\begin{split}
+(\alpha\cdot l)(\vb{v}) & = \alpha \cdot  (l(\vb{v})) \\ 
+& = \alpha \cdot 0 = 0
+\end{split}
+\end{equation*}
+On a donc \( \alpha \cdot l \in E^{\perp} \)
+\item Par la définition de \( E^{\perp} \), la fonctionelle nulle \( l_{0} \)telle que \( (l_{0}+l)(\vb{v}) = l(\vb{v}) \) est dans \( E^{\perp} \)
+
+\end{enumerate}
+Puisque \( E \) est un sous-ensemble d'un espace vectoriel \( V \) et est fermé sous l'addition, la multiplication 
+par un scalaire et contient le vecteur nul, \( E \) est un sous-espace vectoriel de \( V \).
+\item % b)
+Soit
+\[ F_{\vb{v}}(l) : V^{*} \rightarrow \mathbb{F}, \]
+\[ l \mapsto l(\vb{v}) \]
+, où \( \vb{v} \in V \).\\
+\[ \ker(F) = F^{-1}(\left\{ 0 \right\}) = \left\{ l\in V^{*}\,|\, l(\vb{e}) = 0, \forall \vb{e} \in E \right\} =  E^{\perp}\]
+Puisque les fonctionnelles \( l \) sont bornées et donc continues, pour un \( \vb{v} \in V \) fixé,
+\[ \ker(F_{v}(l)) = \left\{ l \in V^{*}\,|\, F(l) = l(v) = 0 \right\}  \]
+Donc, 
+\[ E^{\perp} = \bigcap_{\vb{e} \in E} \ker(F_{\vb{e}}) \]
+est l'intersection d'ensembles fermés, et est donc fermé. 
+
+\item % c)
+On a la définition de la fermeture de \( E \) dans \( V \);
+\[ \overline{E} = \bigcap_{A\text{fermé dans } V,\,A\subset E} A  \]
+Puisque les fonctionnelles \( l \in V^{*} \) sont bornées, donc continues, \( \ker(l) \) est fermé \( \forall l \in  V^{*} \). 
+Soit \( l_{1} \in E^{\perp} \). On a donc 
+\[ l_{1}(\vb{e}) = 0,\, \forall \vb{e} \in E \]
+\[ \implies E \subset \ker(l_{1}),\, \forall l_{1} \in E^{\perp}\]
+
+
+Donc, \( E \subset \bigcap_{l\in E^{\perp}} \)\\
+ % A REMPLIR PAR L'ETUDIANT:
+ii) On doit montrer que \( \exists \vb{w} \notin \overline{E} \) tel que \( \vb{w} \notin \bigcap_{l\in E^{\perp}} \ker(l) \).\\
+Prenons donc 
+\[ G =\left\{ \vb{e}+\alpha \vb{w}\, |\, \vb{e}\in \overline{E}, \alpha \in \mathbb{F}, \vb{w} \notin \overline{E} \right\}  \]
+On remarque donc que \( G/\overline{E} = \left\{\alpha \vb{w}\,|\, \alpha \in \mathbb{F}\right\} \) est de dimension un. 
+On a donc, avec le théorème vu en classe, que 
+\[ G = \overline{E}\oplus W \],
+où \( W = \left\{ \alpha \vb{w} | \alpha \in \mathbb{F}  \right\}  \)
+On peut donc écrire 
+\[ \forall \vb{g} \in G,\, \vb{g} = \vb{e} +\alpha \vb{w} \]
+Soit \( l_{2}: G \rightarrow \mathbb{F} \) une fonctionnelle sur \( G \), telle que 
+\[ l_{1}(\vb{g}) = l_{1}(\vb{v}+\alpha \vb{w}) = \alpha\]
+On a donc \( ker(l_{1}) = E \) et \( l_{2}(\vb{w}) = 1 \iff l_{1}^{-1}(1)= \vb{w}+E \)
+On calcule la norme, avec l'aide du Théorème 2.14 et en utilisant que 
+\[ \lvert \lvert  l_{1} \rvert \rvert_{G^{*}} = \frac{1}{ \lvert \lvert  \vb{w}-\vb{e} \rvert \rvert} \]
+En utilisant le Théorème de Hahn-Banach, on peut étendre \( l_{1} \) de \( G  \) à \( l_{*} \) sur \( V \), tel que
+\[ \lvert \lvert  l_{*} \rvert \rvert_{V^{*}} = \frac{1}{\lvert \lvert  \vb{w}-\vb{e} \rvert \rvert } \]
+On a donc que \( l_{*}(\vb{e}) = 0 \implies l_{*} \in E^{\perp} \) et \( l_{*}(\vb{w}) =1 \implies \vb{w}\notin \ker(l) \)\\
+
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\end{enumerate}
+
+
+
+%-----------------------------QUESTION 2 ----------------------------------%
+\newpage
+\section*{Question 2}
+
+\begin{enumerate}[a)]
+
+\item % a)
+Deux fonctions \( f \text{ et } g \) sont orthogonales si leur produit scalaire est nul, \textit{i.e.} \( \left< f, g \right> =0 \).\\ 
+Sur \( L^{2}\left( [0,1] \right)  \), cela signifie donc que \( \int_{0}^{1}f(x)g(x) dx = 0  \)
+ % A REMPLIR PAR L'ETUDIANT:
+Premièrement, 
+\begin{equation*}
+\begin{split}
+    \left< \psi_{1,1}, \psi_{2,1}\right>  = \int_{0}^{1} dx\; \psi_{1,1}(x)  \psi_{2,1}(x) 
+\end{split}
+\end{equation*}
+On remarque que 
+\[ \psi_{1,1}(x) \psi_{2,1}(x) = \begin{cases}
+    1, & \text{ si } x\in [0, \frac{1}{4}[ \\ 
+    -1, & \text{ si } x\in [\frac{1}{4},\frac{1}{2}[ \\ 
+    0, & \text{ si } x\in [\frac{1}{2},1 ]
+\end{cases} \]
+\begin{equation*}
+\begin{split}
+    \implies \int_{0}^{1}\text{d}x\; \psi_{1,1}(x) \psi_{2,1}(x) &= \int_{0}^{\frac{1}{4}}\text{d}x\; 1 
++ \int_{\frac{1}{4}}^{\frac{1}{2}}\text{d}x\; -1\\ 
+& = \big[x\big]_{0}^{\frac{1}{4}} + \big[-x\big]_{\frac{1}{4}}^{\frac{1}{2}}\\ 
+& = 0
+\end{split}
+\end{equation*}
+Similairement,
+\begin{equation*}
+    \psi_{1,1}(x)\psi_{2,2}(x) = \begin{cases}
+        0, & \text{ si } x\in [0,\frac{1}{2}[\\ 
+        -1, & \text{ si } x\in[\frac{1}{2},\frac{3}{4}[\\ 
+        1, & \text{ si } x\in [\frac{3}{4},1]
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+    \implies \left<\psi_{1,1}, \psi_{2,2} \right> &= \int_{\frac{1}{2}}^{\frac{3}{4}}\text{d}x\; -1
++ \int_{\frac{3}{4}}^{1}\text{d}x\; 1 \\ 
+& = \big[ -x \big]_{\frac{1}{2}}^{\frac{3}{4}}+ \big[x \big]_{\frac{3}{4}}^{1} \\ 
+& = 0
+\end{split}
+\end{equation*}
+Donc, \( \psi_{1,1}\) est orthogonale à \( \psi_{2,1} \) et \( \psi_{2,2} \).
+\item % b) 
+Soit les ondelettes d'indice \( i \); 
+\[ \psi_{i,j} = \begin{cases}
+    \psi_{1,1}(2^{i-1}x-(j-1)) & \text{ si } x\in [2^{-i+1}(j-1),2^{-i+1}j]\\ 
+    0, & \text{ ailleurs }
+\end{cases} \]
+Supposons que les \( \psi_{i,j} \) forment un système orthogonal pour \( i\leq N-1 \) et \( j \in \left\{ 1,2,\ldots,2^{i-1} \right\}  \), 
+\textit{i.e.} \( \left<\psi_{i,j} , \psi_{i',j'} \right> = \delta_{i,i'}\delta_{j,j'},\, \forall i,'i \leq N-1,\, \forall j\in 
+\left\{ 1,2,\ldots,2^{i-1}\right\}, \forall j' \in \left\{ 1,2,\ldots,2^{i'-1} \right\}   \)
+\\
+On veut montrer que pour \( \left<\psi_{N,k}, \psi_{i,j} \right> = 0,\;\; \forall N\in \mathbb{N},\, \forall k\in \left\{1,2,\ldots,2^{-N+1} \right\}   \) et \( \forall i \leq N-1,\, \forall j \in \left\{1,2,\ldots,2^{-i+1} \right\}  \)\\
+\begin{equation*}
+\begin{split}
+    \left< \psi_{N,k}, \psi_{i,j} \right> = \int_{0}^{1}\text{d}x\; \psi_{N,1}(x) \psi_{i,j}(x)
+\end{split}
+\end{equation*}
+On commence par le cas \( k = j \)
+\\ 
+On a donc 
+\begin{equation*}
+\begin{split}
+    \left<\psi_{N,j}, \psi_{i,j} \right> = \int_{0}^{1}\text{d}x\; \psi_{N,j}(x) \psi_{i,j}(x) 
+\end{split}
+\end{equation*}
+Or, 
+\[ \psi_{N,j}(x) \psi_{i,j}(x) = \begin{cases}
+    \psi_{1,1}(2^{N-1}x-(j-1))\cdot \psi_{1,1}(2^{i-1}x-(j-1)), & \text{ si } x\in \\ 
+   &  [(j-1)\cdot 2^{-N+1},j\cdot 2^{-N+1}[\cup\\ & [(j-1)2^{-i+1},j2^{-i+1}[\\ 
+    0, & \text{ ailleurs.}
+\end{cases} \]
+Pour \( j\geq   2 \) on a 
+\[ (j-1) \geq   1 \iff (j-1)2^{-i+1} \geq   2^{-i+1}\]
+Donc \( [(j-1)\cdot 2^{-N+1},j\cdot 2^{-N+1}[\cap[|(j-1)\cdot 2^{-i+1},j\cdot 2^{-i+1}[ = \left\{ \emptyset \right\}  \)
+\[ \implies \int_{0}^{1}\text{d} \psi_{N,j}(x) \psi_{i,j}(x) = 0\; \]
+\\ 
+Pour \( j=1 \),
+\[ [(j-1)\cdot 2^{-N+1},j\cdot 2^{-N+1}[\cup[(j-1)2^{-i+1},j2^{-i+1}[ = [0,2^{-N+1}[\cup[0,2^{-i+1}[ = [0,2^{-N+1}]\]
+Donc 
+\[ \psi_{N,1}(x)\psi_{i,1}(x) =  \begin{cases}
+    \psi_{1,1}(2^{N-1}x)\cdot \psi_{1,1}(2^{i-1}x) &, \text{ si } x\in [0,2^{-N+1}]\\ 
+
+0 &, \text{ ailleurs }
+\end{cases} \]
+L'intégrale devient donc 
+\[ \int_{0}^{1}\text{d}x\; \psi_{N,1}(x)\cdot \psi_{i,1}(x) = \int_{0}^{2^{-N+1}}\text{d}x\; \psi_{1,1}(2^{N-1}x)\psi_{1,1}(2^{i-1}x) \]
+Avec le changement de variable \( u = 2^{N-1}x \implies x = 2^{-N+1}u \), on trouve finalement 
+\[ \int_{0}^{1}\text{d}x\; \psi_{N,1}(x)\cdot \psi_{i,1}(x)  =\frac{1}{2^{-N+1}} \int_{0}^{1}\text{d}x\; \psi_{1,1}(u)\psi_{1,1}(2^{i-N}u) = 0\] 
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % c)
+a.
+En prenant
+\[ b_{2,1}(x) = \frac{1}{2}(\psi_{0}(x)+\psi_{1,1}(x)) = \frac{1}{2} + \begin{cases}
+    \frac{1}{2}, & \text{ si } x\in [0,\frac{1}{2}[\\ 
+    -\frac{1}{2}, & \text{ si } x\in[\frac{1}{2},1[\\ 
+\end{cases}\]
+On trouve donc
+\[ b_{2,1}(x) = \begin{cases}
+    1, & \text{ si } x \in [0,\frac{1}{2}[\\ 
+    0, & \text{ si } x\in[\frac{1}{2},1[\\
+\end{cases} \]
+Similairement,
+\[ b_{2,2}(x) = \frac{1}{2}(\psi_{0}(x) - \psi_{1,1}(x)) = \begin{cases}
+     0, & \text{ si } x\in [0,\frac{1}{2}[\\ 
+    1, & \text{ si } x\in [\frac{1}{2},1[
+\end{cases} \]\\ 
+b. 
+En prenant \(b_{3,1}(x) = \frac{1}{4}(\psi_{0}(x)+\psi_{1,1}(x)+\psi_{2,1}(x)+\psi_{2,2}(x))\)
+On obtient
+ % A REMPLIR PAR L'ETUDIANT:
+\item 
+ Supposons que pour tout intervale \( [(j-1)2^{i+1},j2^{-i+1}] \), 
+ il existe une combinaison linéaire finie des fonctions de Haar telle que cette combinaison est égale à 1 sur cet interval et 0 ailleurs. 
+\textit{i.e.}
+\[ \exists b_{i,j}(x) = \sum_{i,j} \psi_{i,j}(x) \text{ telle que } b_{i,j}(x) = \begin{cases}
+    1, & \text{ si } x\in [(j-1)2^{i+1},j2^{-i+1}]\\ 
+    0, & \text{ ailleurs.}
+\end{cases}
+\]
+Cela signifie donc qu'il existe \( a^{*} \) et \( b^{*} \) de la forme \( a^{*} = (j-1)^{-i+1} \) et \( b^{*} = j^{-i+1} \) tels que 
+\[ b_{i,j}(x) = \begin{cases}
+    1, & \text{ si } x\in [a^{*},b^{*}[\\ 
+    0, & \text{ ailleurs}
+\end{cases} \]
+\text{ On remarque d'abord que la longueur de l'intervalle sur lequel la fonction est égale à 1 est}  \( b^{*}-a^{*} = 2^{-i+1} \)\\
+De cette façon, on en déduit donc que \( \lvert a - a^{*} \rvert \leq 2^{-i+1} \).\\ 
+Il existe donc un \( i \) tel que \( \lvert a-a^{*} \rvert < \varepsilon \), si \( 2^{-i+1} < \varepsilon \)
+\[ \iff (-i+1)\ln(2) < \ln(\varepsilon) \]
+\[ \iff -i < \ln(\frac{\varepsilon}{2})-1 \]
+\[ \iff i > 1+ln\left(\frac{2}{\varepsilon}\right) \]
+Similairement pour b. \\ 
+On peut ainsi choisir, en fonction de la longueur de l'intervalle et de \( \varepsilon \), l'unique indice \( j \) tel que 
+\( a^{*}=(j-1)2^{-i+1} > a  \) et \( b^{*} = j2^{-i+1} < b \)\\ 
+Il existe donc \( b_{i,j}(x) \), une combinaison \text{linéaire des fonctions de Haar respectant ces conditions.} 
+
+d. Toute fonction continue par morceaux \(f\in L^{2}[0,1] \) peut-être écrite comme une combinaison linéaire de fonctions 
+égales à 1 sur un intervalle et 0 ailleurs. \textit{i.e.}
+\[ f_{i}(x) = \sum_{j=1}^{2^{i-1}} \alpha_{j} b_{i,j} (x) \]
+où \( \alpha_{j} \) correspond à la valeur de la fonction dans l'intervalle \( [a_{j},a_{j+1}] \)
+On doit donc montrer que toute fonction écrite ainsi converge vers une fonction de \( L^{2}[0,1] \)
+\[ \lvert \lvert  g-f_{i} \rvert \rvert = \int_{0}^{1}\lvert g-f_{i} \rvert ^{2} dx \; \] 
+Puisque les fonctions de \( L^{2}[0,1] \) sont continues, cela correspond à l'aire sous la courbe 
+entre \( f \) et \( g \). Puisque l'on a choisir les intervalles de telle sorte que 
+\( a_{i}^{*} < a_{i} \) et \( b_{i}^{*} \), l'aire sous la courbe \( g-f \), pour chaque intervalle \( i \), correspond à 
+\[ A = \alpha_{i}(a_{i}^{*}-a_{i} + b_{i}-b^{*}) < 2 \alpha_{i} \cdot 2^{-i+1} \]
+Il est donc toujours possible de prendre des intervalles de longueurs de plus en plus petite, de telle sorte que 
+\[ \lvert \lvert  g - \lim_{i \to \infty} f_{i} \rvert \rvert \rightarrow 0 \]
+
+\end{enumerate}
+
+
+
+%-----------------------------QUESTION 3 ----------------------------------%
+\newpage
+
+
+
+
+\end{document}

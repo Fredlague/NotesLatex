@@ -1,0 +1,249 @@
+%--------------------------INITIALISATION DU DOCUMENT---------------------%
+%											%														%											%
+%                        >>>> Ne pas modifier cette partie <<<<			%
+																																					
+\documentclass[letterpaper,12pt,oneside,final]{book}
+\input{packages}
+
+
+\begin{document}
+%--------------------------------------------------------------------------------------%
+
+%--------------------------PAGE DE COUVERTURE------------------------------%
+
+% A REMPLIR PAR L'ETUDIANT: 
+
+\newcommand\monPrenom{Frédéric}		%PRENOM
+\newcommand\monNom{Laguë}			%NOM
+\newcommand\monMatricule{1986131}	%MATRICULE
+\newcommand\monGroupe{01}		%GROUPE
+
+%------------------------ Ne pas modifier la ligne suivante --------------%
+\input{page_couverture}
+%-------------------------------------------------------------------------%
+
+
+%========================= Début des réponses ============================%
+
+
+%-----------------------------QUESTION 1 ----------------------------------%
+\section*{Question 1}
+
+Soient \( E_{1,},E_{2},\ldots,E_{n} \) une collection dénombrable de sous-ensembles de mesures nulle de \( \mathbb{R}^{n} \). \\ 
+On peut construire une collection \( F_{1},F_{2},\ldots,F_{n} \) de sous-ensembles disjoints tels que 
+\[ \cdot \hspace{-11.90pt}\bigcup_{k=1}^{n} F_{n} = \bigcup_{k=1}^{n} E_{n}, \]
+en prenant
+\[ F_{1} = E_{1} \]
+\[ F_{2} = E_{2} \textbackslash E_{1}   \]
+\[ F_{3} = E_{3} \textbackslash (E_{1}\bigcup E_{2}) \]
+\[ . \]
+\[ . \]
+\[ . \]
+\[ F_{n} = E_{n} \textbackslash (E_{1} \bigcup E_{2}\bigcup \ldots \bigcup E_{n-1} )\]
+
+De la définition d'une mesure, la mesure d'une union dénombrable d'ensembles disjoints est
+\[ \mu\left(\hspace{11pt}\cdot\hspace{-11.9pt}\bigcup_{n}^{\infty }F_{n}\right) = \sum_{n=1}^{\infty} \mu \left(F_{n}\right) \]
+
+Or, par construction, chaque \( F_{n}  \) est inclus dans \( E_{n} \) 
+\[ F_{n} \subset E_{n} \]
+\[ \implies \mu (F_{n}) \leq \mu (E_{n}) \]
+ % A REMPLIR PAR L'ETUDIANT:
+On a donc 
+\[ \mu\left( \bigcup_{k=1}^{n} E_{k} \right) = \mu\left(\hspace{11pt}\cdot \hspace{-11.9pt}\bigcup_{k=1}^{n} F_{k}\;\right) = \sum_{k=1}^{n} \mu\left( F_{k} \right) \leq \sum_{k=1}^{N} \mu\left( E_{n} \right) = 0 \]
+
+
+%-----------------------------QUESTION 2 ----------------------------------%
+\newpage
+\section*{Question 2}
+
+\begin{enumerate}[a)]
+
+\item % a)
+On peut écrire la fonction valeur absolue comme 
+\[ f(x) = \lvert x \rvert  = \begin{cases}
+	x, &\text{ si } x \geq  0 \\ 
+	-x, &\text{ si } x<0
+\end{cases} \]
+On a \( f \in L^{1}(\mathbb{R} ) \). La fonction \( f \) définit donc un fonctionnelle \( l_{f}\in \mathcal{D}(\mathbb{R} )^{*} \) telle que, \( \forall \varphi \in \mathcal{D}(\mathbb{R} ) \)
+\[ l_{f}(\varphi) = \int_{\mathbb{R} }f(x)\cdot \varphi (x) \text{d}x\; \]
+On peut choisir \( \varphi  \) à support compact, telle que \( \overline{\text{supp}(\varphi)} = [-M,M] \), pour une constante \( M \).
+On a donc la dérivée au sens large de \( f \); 
+\begin{equation*}
+\begin{split}
+	\partial_{x}l_{f}(\varphi) &= - \int_{\mathbb{R} }f(x) \frac{\text{d}\varphi (x)}{\text{d}x} \text{d}x\;\\ 
+& = - \int_{-M}^{M}\text{d}x f(x) \frac{\text{d}\varphi (x)}{\text{d}x}\;\\ 
+& = -\int_{-M}^{0}\text{d}x\;f(x)\frac{\text{d}(\varphi(x))}{\text{d}x} - \int_{0}^{M}\text{d}x\;f(x) \frac{\text{d}\varphi (x)}{\text{d}x} \\ 
+& = -\int_{-M}^{0}\text{d}x\;f(x)\frac{\text{d}\varphi (x)}{\text{d}x} -\int_{0}^{M}\text{d}x\;f(x)\frac{\text{d}(\varphi (x))}{\text{d}x}\\ 
+& = -\lim_{b \to 0^{-}}\Bigg(\Bigl[\lvert x \rvert \varphi (x)\Bigr]_{-M}^{b} - \int_{-M}^{b}\text{d}x\;\frac{\text{d}f(x)}{\text{d}x} \varphi(x)\Bigg)\\
+& - \lim_{a \to 0^{+}} \Biggl(\Bigl[f(x)\varphi (x)\Bigr]_{a}^{M}-\int_{a}^{M}\text{d}x\;\frac{\text{d}f(x)}{\text{d}x} \varphi (x)\Biggr)\\
+& = -\lim_{b \to 0^{-}} \Biggl(\Bigl[-b\cdot \varphi (b)-(-M)\cdot \varphi(-M)\Bigr]-\int_{-M}^{b}\text{d}x\;\frac{\text{d}f(x)}{\text{d}x}\varphi(x)\Biggr)\\
+& -\lim_{a \to 0^{+}}\Biggl(\Bigl[M\cdot \varphi (M)-a\cdot \varphi (a)\Bigr]-\int_{a}^{M}\text{d}x\;\frac{\text{d}f(x)}{\text{d}x} \varphi (x)\Biggr) 
+\end{split}
+\end{equation*}
+Avec \( \varphi(-M)=\varphi(M) =0 \), on obtient 
+
+\begin{equation*}
+\begin{split}
+	 \partial_{x}l_{f}(\varphi) & = \lim_{b \to 0^{-}}  \int_{-M}^{b}\text{d}x\;\frac{\text{d}f(x)}{\text{d}x} \varphi(x) + \lim_{a \to 0^{+}} \int_{a}^{M}\text{d}x\; \frac{\text{d}f(x)}{\text{d}x} \varphi(x)\\
+& = -\lim_{b \to 0^{-}} \int_{-M}^{b}\text{d}x\;\varphi (x) + \lim_{a \to 0^{+}} \int_{a}^{M}\text{d}x\;\varphi (x)
+\end{split}
+\end{equation*}
+En posant
+\[ g(x) = \text{sign}(x) = \begin{cases}
+	1, & \text{ si } \geq 0\\ 
+	-1, & \text{ si } x < 0
+\end{cases} \]
+On a donc
+\begin{equation*}
+\begin{split}
+	\partial_{x}l_{f}(\varphi) & = \int_{-M}^{M}\text{d}x\;g(x)\varphi(x) 
+\end{split}
+\end{equation*}
+
+\[ \implies \partial_{x}l_{f} = \partial_{x}l_{g} \]
+Puisque l'égalité est respectée pour toute fonction test \( \varphi \), la dérivée au sens large de \(  f(x) = \lvert x \rvert  \) est donc \( g(x) = \text{sign}(x)\)
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % b)
+
+	\begin{enumerate}[(i)]
+		
+% A REMPLIR PAR L'ETUDIANT:
+	
+	\item % (ii) 
+Soit \( \omega \in D(\mathbb{R} )  \) telle que \( \int_{\mathbb{R} }\text{d}x\;\omega(x) = 1\). Alors, on peut définir 
+\[ \psi(t) = \varphi(t) - \omega(t) \int_{\mathbb{R} }\text{d}s\;\varphi(s) \]
+
+D'abord, on calcule la dérivée de \( \psi \). 
+\begin{equation*}
+\begin{split}
+	\frac{\text{d}\psi}{\text{d}t} & = \frac{\text{d}}{\text{d}t} \left(\varphi(t) - \omega(t) \int_{\mathbb{R} }\text{d}s\;\varphi(s)\right) \\ 
+& = \varphi '(t) - \omega'(t)\int_{\mathbb{R} } \varphi(s)\text{d}s = 0\\ 
+& \implies \psi \in C^{\infty }
+\end{split}
+\end{equation*}
+
+Ainsi, \( \forall \varphi \in D(\mathbb{R}) \),
+\begin{equation*}
+\begin{split}
+	\int_{\mathbb{R} }\text{d}t\;\psi(t) & = \int_{\mathbb{R}}\left(\varphi(t) - \omega(t)\int_{\mathbb{R}} \varphi(s) \text{d}s\right)\text{d}t \\ 
+& = \int_{\mathbb{R} } \varphi (t) dt - \int_{\mathbb{R} }\left( \omega(t)\int_{\mathbb{R}}\varphi(s)\text{d}s   \right) \text{d}t\\ 
+& = 1- \left( 1\cdot 1 \right) \\ 
+& = 0
+\end{split}
+\end{equation*}
+Selon le théorème fondamental du calcul intégral, 
+\[ \frac{\text{d}}{\text{d}t} \int_{-\infty }^{t}\text{d}x\;f(x) = f(t)  \]
+Donc, 
+\[ \varphi '(t) = \frac{\text{d}}{\text{d}t} \left( \varphi(r) - \omega(r)\int_{\mathbb{R} }\text{d}r\; \right)  = \varphi(t) -\omega(t) \int_{\mathbb{R}}\varphi(s)\text{d}s\;   =\psi(t)  \]
+
+\item 
+On a
+\begin{equation*}
+\begin{split}
+l_{f}(\varphi) & = \int_{\mathbb{R} }\text{d}x\; f(x) \varphi(x)  \\ 
+& = \int_{\mathbb{R} }\text{d}x\; f(x)\left( \psi(t) +\omega(x) \int_{\mathbb{R} }\varphi(s)\text{d}s\; \right) \\ 
+& = \int_{\mathbb{R} }\text{d}x\; f(x) \psi(x) + \int_{\mathbb{R} }\text{d}\; f(x)\omega(x)\int_{\mathbb{R} }\varphi(s)\text{d}s\;  \\ 
+& = \int_{\mathbb{R} }\text{d}\; f(x) \varphi '(x) + \int_{\mathbb{R} }\text{d}x\;f(x)\omega(x)\\ 
+& = 0 + \int_{\mathbb{R} }\text{d}x\; C f(x)\omega(x)\\ 
+& = l_{C}(x)
+\end{split}
+\end{equation*} 
+	
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+%-----------------------------QUESTION 3 ----------------------------------%
+\newpage
+\section*{Question 3}
+
+\[ a^{\dagger} \ket{0} = \ket{1}\]
+\[ \ket{n} = \frac{1}{\sqrt{n!}} a^{\dagger\,n} \ket{0} \]
+\[ a^{\dagger}_{k} \ket{0_{1},0_{2},\ldots,0_{k-1},0_{k},\ldots} =\ket{0_{1},0_{2},\ldots,0_{k-1},1_{k},\ldots}\]
+\[ \ket{n_{1},n_{2},n_{3},\ldots} = \frac{1}{\sqrt{n_{1}!}} a^{\dagger\,n_{1}}\frac{1}{\sqrt{n_{2}!}} a^{\dagger\,n_{2}}\frac{1}{\sqrt{n_{3}!}} a^{\dagger\,n_{3}} \ket{0,0,0,\ldots}\]
+\[n_{k} = a_{k}^{\dagger}a_{k} \]
+\[ n_{k} \ket{n_{1}n_{2},\ldots, n_{k},\ldots} = n_{k} \ket{n_{1}n_{2},\ldots, n_{k},\ldots}\]
+\[ N_{tot} = \sum_{k} a_{k}^{\dagger}a_{k} \]
+
+Soient \( \Omega \subset \mathbb{R}^{3}\) un ouvert borné. On veut montrer que 
+\[ \int_{\Omega}\text{d}x\;\vb{u}\cdot (\nabla \times \vb{v}) = \int_{\Omega}\text{d}x\;(\nabla \times \vb{u}) \cdot  \vb{v} ,\]
+\( \forall \vb{u},\vb{v} \in H_{0}^{1}(\Omega) \)
+
+On définit la fonction \( f:\, \mathbb{R}^{3} \times \mathbb{R}^{3} \rightarrow  \mathbb{R} \) comme 
+\[ f(\vb{u},\vb{v}) =   \int_{\Omega}\text{d}x\;\vb{u}\cdot (\nabla \times \vb{v}) - \int_{\Omega}\text{d}x\;(\nabla \times \vb{u}) \cdot  \vb{v} \]
+
+On montre d'abord que \( f \) est bilinéaire:
+
+i) 
+\begin{equation*}
+\begin{split}
+	f(\alpha_{1}\vb{u}_{1}+\alpha_{2}\vb{u_{2}}, v) & = \int_{\Omega}\text{d}x\; (\alpha_{1}\vb{u}_{1}+\alpha_{2}\vb{v}_{2}) \cdot (\nabla \times \vb{v}) - \int_{\Omega }\text{d}x\;(\nabla \times \left[\alpha\vb{u}_{1}+\alpha_{2}\vb{u}_{2}\right])\cdot \vb{v}\\ 
+& = \int_{\Omega}\text{d}x\;\alpha_{1}\vb{u}_{1}\cdot (\nabla \times \vb{v} ) + \alpha_{2}\vb{u}_{2} \cdot (\nabla \times \vb{v} ) \\
+& \;\;- \int_{\Omega }\text{d}x\;\alpha_{1}(\nabla \times \vb{u}_{1} ) \cdot \vb{v} + \alpha_{2}(\nabla \times \vb{u}_{2} )\cdot \vb{v}  \\ 
+& = \int_{\Omega }\text{d}x\;\alpha_{1}\vb{u}_{1}\cdot (\nabla \times \vb{v}) + \int_{\Omega }\text{d}x\;\alpha_{2}\vb{u}_{2}\cdot \nabla \times \vb{v} \\ 
+& \;\;- \int_{\Omega }\text{d}x\;\alpha_{1}(\nabla \times \vb{u}_{1} ) \cdot \vb{v} - \int_{\Omega }\text{d}x\;\alpha_{2}(\nabla \times \vb{u}_{2} )\cdot \vb{v}\\ 
+& = \alpha_{1}\int_{\Omega }\text{d}x\;\vb{u}_{1}\cdot (\nabla \times \vb{v}) - \alpha_{2}\int_{\Omega }\text{d}x\;\vb{u}_{1}\cdot \nabla \times \vb{v} \\
+& \;\;- \alpha_{1}\int_{\Omega }\text{d}x\;(\nabla \times \vb{u}_{1} ) \cdot \vb{v} - \alpha_{2}\int_{\Omega }\text{d}x\;(\nabla \times \vb{u}_{2} )\cdot \vb{v}\\
+& = \alpha_{1}\left( \int_{\Omega }\text{d}x\;\vb{u}_{1}\cdot (\nabla \times \vb{v}) - \int_{\Omega }\text{d}x\;(\nabla \times \vb{u}_{1} ) \cdot \vb{v} \right) \\ 
+& \;\;+ \alpha_{2}\left( \int_{\Omega }\text{d}x\;\vb{u}_{2}\cdot (\nabla \times \vb{v}) - \int_{\Omega }\text{d}x\;(\nabla \times \vb{u}_{2} ) \cdot \vb{v} \right) \\ 
+& = \alpha_{1}f(\vb{u}_{1},\vb{v}_{1}) + \alpha_{2}f(\vb{u}_{2},\vb{v})
+\end{split}
+\end{equation*}
+ii)
+\begin{equation*}
+\begin{split}
+	f(\vb{u},\alpha{1}\vb{v}_{1}+\alpha_{2}\vb{v}_{2}) &= \int_{\Omega }\text{d}x\; \vb{u}\cdot \left(\nabla \times \left[ \alpha_{1}\vb{v}_{1}+\alpha_{2}\vb{v}_{2} \right] \right) - 
+\int_{\Omega }\text{d}x\;\left( \nabla \times \vb{u}  \right) \cdot (\alpha_{1}\vb{v}_{1}+\alpha_{2}) \\ 
+& = \int_{\Omega}\text{d}x\; \vb{u}\cdot (\alpha_{1} \left[ \nabla \times \vb{v}_{1} \right] + \alpha_{2}\left[ \nabla \times \vb{v}_{2}  \right])\\ 
+&\;\; - \int_{\Omega}\text{d}\; (\nabla \times \vb{u} ) \cdot \alpha_{1}\vb{v}_{1} + (\nabla \times \vb{u} ) \cdot \alpha_{2}\vb{v}_{2} \\ 
+& = \alpha_{1}\int_{\Omega}\text{d}\; \vb{u}\cdot (\nabla \times \vb{v}_{1} ) + \alpha_{2}\int_{\Omega}\text{d}\; \vb{u}\cdot (\nabla \times \vb{v}_{2} ) \\ 
+&\;\; -\alpha_{1}\int_{\Omega}\text{d}\; (\nabla \times \vb{u} )\cdot \vb{v}_{1} -\alpha_{2}\int_{\Omega}\text{d}\; (\nabla \times \vb{u} )\cdot  \vb{v}_{2} \\ 
+& = \alpha_{1}(\int_{\Omega}\text{d}\; \vb{u}\cdot (\nabla \times \vb{v}_{1} ) - \int_{\Omega}\text{d}\; (\nabla \times \vb{u} )\cdot \vb{v}_{1} ) \\ 
+& \;\; + \alpha_{2}(\int_{\Omega}\text{d}\; \vb{u}\cdot (\nabla \times \vb{v}_{2} ) - \int_{\Omega}\text{d}\; (\nabla \times \vb{u} )\cdot \vb{v}_{2} ) \\ 
+& = \alpha_{1}f(\vb{u},\vb{v}_{1}) + \alpha_{2}f(\vb{u},\vb{v}_{2})
+\end{split}
+\end{equation*}
+La fonction \( f \) est donc bien bilinéaire. \\ 
+Ensuite, on montre que \( f \) est bornée. \\ 
+
+On a
+\begin{equation*}
+\begin{split}
+	 \lvert f(\vb{u},\vb{v}) \rvert & \leq \int_{\Omega}\text{d}x\; \lvert \vb{u}\cdot (\nabla \times \vb{v} ) \rvert + \int_{\Omega}\text{d}x\; \lvert (\nabla \times \vb{u} ) \cdot \vb{v}\rvert    \\ 
+	& \leq \lvert \lvert  \vb{u} \rvert \rvert_{L^{2}(\Omega)^{3}} \; \lvert \lvert  \nabla \times \vb{v} \rvert \rvert_{{L^{2}(\Omega )^{3}}} + \lvert \lvert  \nabla \times \vb{u}  \rvert \rvert_{L^{2}(\Omega )^{3}} \lvert \lvert  \vb{v} \rvert \rvert_{L^{2}(\Omega )^{3}} \\ 
+\end{split}
+\end{equation*}
+, où l'on a utilisé l'identité de Cauchy-Schwarz. \\
+Puisque les dérivées partielles sont continues, l'opérateur \( \nabla \times : H_{0}^{1}(\Omega)^{3} \rightarrow H_{0}^{0}(\Omega)^{3}\), en étant une combinaison linéaire des dérivées partielles est continue, donc borné. \\ Ainsi, il existe deux constantes 
+\( M_{\vb{v}} \text{ et } M_{\vb{u}} \) telles que 
+\[ \lvert \lvert  \nabla \times \vb{v}  \rvert \rvert_{H^{1}_{0}(\Omega)^{3}} \leq M_{\vb{v}} \lvert \lvert  \vb{v} \rvert \rvert_{H_{0}^{1}(\Omega)^{3}}  \] 
+et 
+\[ \lvert \lvert  \nabla \times \vb{u}  \rvert \rvert_{H^{0}_{0}(\Omega)^{3}} \leq M_{\vb{u}} \lvert \lvert  \vb{u} \rvert \rvert_{H_{0}^{1}(\Omega)^{3}}  \] 
+
+De plus, on a par définition 
+\[ \lvert \lvert  \vb{u} \rvert \rvert_{H_{0}^{1}(\Omega )^{3}} \geq \lvert \lvert  \vb{u} \rvert \rvert_{L^{2}(\Omega)^{3}} \text{      et      } \lvert \lvert  \vb{u} \rvert \rvert_{H_{0}^{1}(\Omega )^{3}} \geq \lvert \lvert  \vb{v} \rvert \rvert_{H_{0}^{1}(\Omega ^{3})} \]
+
+On peut donc réécrire 
+\[ \lvert f(\vb{\vb{v}}) \rvert \leq \lvert \lvert  \vb{u} \rvert \rvert_{H_{0}^{1}(\Omega )^{3}} M_{\vb{v}} \lvert \lvert  \vb{v} \rvert \rvert_{H_{0}^{1}(\Omega)^{3}} + \lvert f(\vb{\vb{v}}) \rvert \leq \lvert \lvert  \vb{v} \rvert \rvert_{H_{0}^{1}(\Omega )^{3}} M_{\vb{u}} \lvert \lvert  \vb{u} \rvert \rvert_{H_{0}^{1}(\Omega)^{3}}   \]
+\[ \implies \lvert f(\vb{u},\vb{v}) \rvert \leq (M_{\vb{v}}+M_{\vb{u}}) \lvert \lvert  \vb{u} \rvert \rvert_{H_{0}^{1}(\Omega )^{3}} \lvert \lvert  \vb{v} \rvert \rvert_{H_{0}^{1}(\Omega )^{3}} \]
+On a donc que \( f \) est une fonction bilinéaire et bornée entre deux espaces vectoriels normés, alors \( f \) est continue sur \( H_{0}^{1}(\Omega)^{3} \)
+\\ Ensuite, il est donnée que \( \forall \phi, \psi \in C^{1}_{0}(\Omega )^{3} \), on a 
+\[ f(\phi,\psi) = 0 \]
+
+Or, puisque \( H_{0}^{1} \) est la complétude de \( C_{0}H^{1} \), on a \( C_{0}^{1} \subset H_{0}^{1} \). 
+De plus, \( C_{0}^{1} \) est dense. \\
+Ainsi, puisque \( f = 0  \) sur un sous-ensemble dense et \( f \) est continue sur \( H_{0}^{1}(\Omega )^{3} \), alors 
+
+\[ f(\vb{u},\vb{v}) = 0,\;\; \forall \vb{v},\vb{u} \in H_{0}^{1}(\Omega )^{3} \]
+ % A REMPLIR PAR L'ETUDIANT:
+
+
+
+%-----------------------------QUESTION 4 ----------------------------------%
+
+
+
+\end{document}

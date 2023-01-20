@@ -1,0 +1,288 @@
+%--------------------------INITIALISATION DU DOCUMENT---------------------%
+%											%														%											%
+%                        >>>> Ne pas modifier cette partie <<<<			%
+																																					
+\documentclass[letterpaper,12pt,oneside,final]{book}
+\input{packages}
+
+
+\begin{document}
+%--------------------------------------------------------------------------------------%
+
+%--------------------------PAGE DE COUVERTURE------------------------------%
+
+% A REMPLIR PAR L'ETUDIANT: 
+
+\newcommand\monPrenom{Frédéric}		%PRENOM
+\newcommand\monNom{Laguë}			%NOM
+\newcommand\monMatricule{1986131}	%MATRICULE
+\newcommand\monGroupe{01}		%GROUPE
+
+%------------------------ Ne pas modifier la ligne suivante --------------%
+\input{page_couverture}
+%-------------------------------------------------------------------------%
+
+
+%========================= Début des réponses ============================%
+
+
+%-----------------------------QUESTION 1 ----------------------------------%
+\section*{Question 1}
+
+
+ % A REMPLIR PAR L'ETUDIANT:
+Tout d'abord, pour montrer la linéarité de \( T{-1} \) on doit montrer que, \(\forall x,y \in U\):
+\begin{enumerate}[i)]
+    \item \[ T^{-1}(x+y) = T^{-1} x + T^{-1} y, \, \] et 
+    \item \[ T^{-1}(\alpha x) = \alpha T^{-1}x \] 
+\end{enumerate}
+
+Pour i), posons \( x' = Tx, \, \in V  \text{ et } y' = Ty, \, \in V \). On peut donc écrire
+\[ T ^{-1}(x' + y') = T^{-1}(Tx+Ty)  \]
+
+Puisque \( T \) est linéaire, 
+\[T^{-1}(Tx + Ty) = T^{-1}(T(x+y)) = T^{-1} T (x+y) = x+y  \] 
+
+On avait \( x' = Tx\) et \( y' = Ty \). Puisque T est bijectif, \( x = T^{-1}x \) et \( y = T^{-1}y' \)
+On trouve donc bel et bien
+\[ T^{-1}(x' + y') = T^{-1}x' + T^{-1}y' \] 
+\\ 
+
+Pour ii), on pose \( x' = Tx  \). Similairement,
+
+\[ T^{-1}(\alpha x') = T^{-1}(\alpha Tx)  \]
+
+Puisque \( T  \) est linéaire, 
+\[ T^{-1}(\alpha Tx ) = T^{-1}(T(\alpha x)) =  \alpha x\]
+Puisque T est bijectif, \( x' = Tx \implies x = T^{-1} x \). 
+On trouve donc effectivement
+\[ T^{-1}(\alpha x) = \alpha T^{-1} (x)  \]
+
+Donc \( T^{-1}  \) est donc linéaire. \\
+
+Ensuite, pour la condition sur \( \lvert\lvert T^{-1} \rvert\rvert  \), on commence par écrire la définition de
+la norme de \( T^{-1} \). 
+
+\begin{equation*}
+    \lvert\lvert T^{-1} \rvert\rvert   = \text{sup}\left\{ \frac{\lvert\lvert T^{-1}x \rvert\rvert _{U}}{\lvert\lvert x \rvert\rvert _{V}} |\, x\in V \text{ tel que }x\neq 0.  \right\}
+\end{equation*}
+
+Posons ensuite \( x= Tx',\, x\in V, \, x' \in U\). Puisque \( T \) est bijectif, on a \( x'= T^{-1}x\). On peut donc réécrire
+\begin{equation*}
+\begin{split}
+\lvert \lvert  T^{-1} \rvert \rvert = \text{sup}\left\{ \frac{\lvert \lvert  x' \rvert \rvert _{U}}{\lvert \lvert  Tx' \rvert \rvert_{V}} |\, x' \in U \text{ tel que } x' \neq 0 \right\} 
+\end{split}
+\end{equation*}
+
+En utilisant \( \lvert \lvert  Tx' \rvert \rvert _{V} \leq \lvert \lvert  T \rvert \rvert \ \cdot \lvert \lvert  x' \rvert \rvert _{U} \), (livre, p.53) on a que 
+\[ \frac{1}{\lvert \lvert  T \rvert \rvert } \leq \frac{\lvert \lvert  x' \rvert \rvert _{U}}{\lvert \lvert  Tx' \rvert \rvert V} \implies \text{sup} \left\{\frac{\lvert \lvert  x' \rvert \rvert _{U}}{\lvert \lvert  Tx' \rvert \rvert V}\right\} \geq \frac{1}{\lvert \lvert  T \rvert \rvert }  \]
+
+On trouve donc effectivement que
+\[ \frac{1}{\lvert \lvert  T \rvert \rvert } \leq \lvert \lvert  T^{-1} \rvert \rvert  \]
+%-----------------------------QUESTION 2 ----------------------------------%
+\newpage
+\section*{Question 2}
+
+\begin{enumerate}[a)]
+
+\item % a)
+L'opérateur \( T \) est borné si: \( \exists M \in \mathbb{R}^{+}  \), tel que 
+\[ \lvert \lvert  Tf \rvert \rvert \leq M\cdot \lvert \lvert  f \rvert \rvert _{\infty }, \, \forall f \in C^{0}[-a,a] \]
+\[ \iff \lvert f(0) \rvert \leq M\cdot \sup_{x\in[-a,a]} \lvert f(x) \rvert , \, \forall f\in C^{0}[-a,a] \]
+
+On remarque que pour \( M \) = 1, \( \lvert f(0) \rvert \leq \sup_{x\in [-a,a]} \lvert f(x) \rvert  \), si f n'est 
+pas la fonction identiquement nulle.
+L'opérateur est donc borné par \( \lvert \lvert  T \rvert \rvert \leq 1 \)
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % b)
+Puisque \( T \) est un opérateur linéaire entre deux espaces vectoriels, \( T \) est continue si et 
+seulement si il est borné. On doit donc montrer que \( T \) n'est pas borné. C'est-à-dire que, 
+\( \forall M < \infty, \, \exists f \in C^{0}[-a,a] \) tel que
+\[ \lvert f(0) \rvert > M \int_{-a}^{a} \lvert f(x) \rvert dx \]
+Soit la fonction \( f_{n}(x)\) définie comme : 
+\begin{equation*}
+\lim_{n \to \infty}f_{n}(x) = \begin{cases}
+        n^{2}x + n, &\;\; \text{ si } x\in [-\frac{1}{n},0] \\ 
+        -n^{2}x +n &\;\; \text{ si } 0  x \in [0,\frac{1}{n}]\\ 
+        0, & \;\; \text{ sinon}.
+    \end{cases}
+\end{equation*}
+On remarque que \( \lim_{n \to \infty} f_n (0) = \lim_{n \to \infty} n = \infty \). De plus, on peut calculer que:
+\begin{equation*}
+\begin{split}
+    lim_{n \to \infty} \int_{-a}^{a}\lvert f(x) \rvert dx & = \lim_{n \to \infty} \int_{-\frac{1}{n}}^{0} n^{2}x+ n\;dx + 
+\int_{0}^{\frac{1}{n}} -n^{2}x + n\;dx \\ 
+& = 1
+\end{split}
+\end{equation*}
+Ainsi, \( \forall M < \infty, \; \lim_{n \to \infty} f_n(0) > M \lvert \lvert  f_{n} \rvert \rvert_{\infty } \)
+et donc, on a montré que T n'est pas borné. 
+Puisque T n'est pas borné, il n'est pas continu car il s'agit d'un opérateur linéaire, entre deux espaces vectoriels normés.
+\end{enumerate}
+
+
+%-----------------------------QUESTION 3 ----------------------------------%
+\newpage
+\section*{Question 3}
+
+\begin{enumerate}[a)]
+
+\item % a)
+Pour montrer que \( \text{Ker}(T) \) est un sous-espace vectoriel on doit montrer 
+\begin{enumerate}[i)]
+    \item Fermeture sous l'addition:
+\[ \forall \vb{x},\vb{y} \in \text{Ker}(T) \implies \; \vb{x}+\vb{y} \in \text{Ker}(T) \]
+Pour prouver ceci, prenons \( \vb{x}, \vb{y} \in \text{Ker}(T)\). 
+Alors, en utilisant la linéarité de \( T \):
+\[ T(\vb{x}+\vb{y}) = T\vb{x} +T\vb{y} = \vb{0} + \vb{0} = \vb{0}\]
+Donc \( \vb{x} + \vb{y} \) est dans le noyeau.
+    \item Fermeture sous la multiplication par un scalaire (du corps \( \mathbb{F}\))
+\[ \forall \alpha \in \mathbb{F}, \forall \vb{x} \in \text{Ker}(T) \implies alpba \vb{x} \in \text{Ker}(T)\]
+Encore une fois, en utilisant le fait que \( T \) est linéaire: 
+\[ T \alpha \vb{x} = \alpha T\vb{x} = \alpha \cdot \vb{0} = \vb{0} \]
+Donc, \( \alpha \vb{x} \) est dans le noyeau. 
+    \item Existence du vecteur nul dans le noyeau 
+Pour prouver ceci, on fait ressortir l'élément inverse de l'addition de vecteurs, et en utilisant la linéarité. Soit \( \vb{x} \ in \text{Ker}(T) \)
+\[ T\vb{0} = T(\vb{x+ \vb{-x}} = T(\vb{x}) + T(\vb{-x}) = T(\vb{x}) - T(\vb{x}) = \vb{0} - \vb{0} = \vb{0} \]
+Le vecteur nul \( \vb{0} \)  est donc dans le noyeau.\\ 
+\( \text{Ker}(T) \) est donc effectivement un sous-espace vectoriel. 
+\end{enumerate}
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % b)
+Pour montrer que \( \text{Ker}(T) \) est fermé, on utilise le fait que \( T \) est linéaire et borné, donc continu. 
+Supposons que \( T \neq 0 \), et prenons \( \vb{x}_{n} \notin \text{Ker}(T) \implies \vb{x}_{n}\in \text{Ker}(T)^{C} \), défini comme:
+\[ \vb{x_{n}} = \lim_{n \to \infty} \frac{\vb{x}}{n} | \vb{x} \notin \text{Ker}(T) \] 
+
+Par la linéarité de \( T \), on peut voir que \( \vb{x}_{n} \) n'est pas dans le noyeau pour aucun \( n \);
+\[ T(\vb{x}_{n}) = \lim_{n \to \infty} \frac{1}{n} T(\vb{x}) .\] 
+
+Cependant, \( \vb{x}_{n} \) converge vers \( \vb{x'} = {0} \notin \text{Ker}(T)^{C} \). Cela signifie donc que la limite 
+n'est pas dans le complément du noyeau. Le complément du noyeau est donc ouvert, et donc \( \text{Ker}(T) \) est fermé. 
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\item % c)
+Tout d'abord, commençons par montrer que \( T \) est injectif \( \implies  \text{Ker}(T) = \left\{ \vb{0} \right\} \). 
+Supposons que \( T \) est injectif. Par linéarité, 
+\[ T(\vb{0}) = \vb{0} \implies \vb{0} \in \text{Ker}(T) \]
+Ensuite, prenons \( \vb{x} \in U \).
+On a donc, si \( \vb{x} \in \text{Ker}(T)\), que \( T(\vb{x}) = 0 \)\[ \implies T(\vb{x}) = T(\vb{0})\], puisque \( T \) est injectif, 
+\[ \implies \vb{x} = \vb{0} \]
+Ainsi, \( \vb{x} \in \text{Ker}(T) \implies \vb{x} = \vb{0}\) et donc 
+\[ T \text{ est injectif } \implies \text{Ker}(T) = \left\{ \vb{0} \right\} \]
+ % A REMPLIR PAR L'ETUDIANT:
+Montrons ensuite que \( \text{Ker}(T) = \left\{ 0 \right\} \implies T \) est injectif. 
+Soient \( \vb{x},\vb{y} \) tels que \( T\vb{x} = T\vb{y} \). Ainsi, 
+\[ \implies T\vb{x}-T\vb{y} = 0 .\]
+Par linéarité, 
+\[ T\vb{x} - T\vb{y} = T(\vb{x}-\vb{y}) = 0 .\]
+Donc, \( \vb{x}-\vb{y} \in \text{Ker}(T) \). 
+Cependant, on avait \( \text{Ker}(T) = \left\{ \vb{0} \right\}  \)
+\[ \implies \vb{x} - \vb{y} = \vb{0} \iff \vb{x} = \vb{y} \]
+On a donc que \( T \) est injectif. 
+Donc, \( \text{Ker}(T)=\left\{ 0 \right\} \implies T \) est injectif. 
+\\ 
+
+Puisque \( T \text{ est injectif } \implies \text{Ker}(T) = \left\{ \vb{0} \right\} \) et 
+\( \text{Ker}(T)=\left\{ 0 \right\} \implies T \) est injectif, on a 
+\[ \text{Ker}(T) = \left\{ \vb{0} \right\} \iff T \text{ est injectif} \]
+
+
+\end{enumerate}
+
+
+%-----------------------------QUESTION 4 ----------------------------------%
+\newpage
+\section*{Question 4}
+
+
+\begin{enumerate}[a)]
+
+\item % a)
+Tout d'abord, on peut commencer par réécrire : 
+\[ \lvert \lvert  A\vb{u} \rvert \rvert_{2}^{2} = \left( \sum_{k=1}^{n} (A\vb{u})_{k}^{2} \right)  \]
+ % A REMPLIR PAR L'ETUDIANT:
+En posant \( \vb{x} = A\vb{u} \), on obtient \( \lvert \lvert  \vb{x} \rvert \rvert_{2}^{2} = \sum_{k=1}^{n} \vb{x}_{k}^{2} \)
+Ou, de façon équivalente 
+\[ \lvert \lvert  \vb{x} \rvert \rvert^{2}_{2} = \vb{x}^{T}\vb{x} \]
+Donc, 
+\begin{equation*}
+\begin{split}
+    \lvert \lvert  A\vb{u} \rvert \rvert_{2}^{2}  & = (A\vb{u})^{T}A\vb{u} \\ 
+& = \vb{u}^{T}A^{T}A\vb{u}
+\end{split}
+\end{equation*}
+
+En posant \( F = A^{T}A \), on peut écrire en termes matriciels 
+\begin{equation*}
+\begin{split}
+\lvert \lvert  A \vb{u} \rvert \rvert_{2}^{2} & = \sum_{i,j=1}^{n} u_{i}F_{ij}u_{j}\\
+\end{split}
+\end{equation*}
+Donc le gradient est 
+\begin{equation*}
+\begin{split}
+    \frac{\partial}{\partial u_{k}} \lvert \lvert A\vb{u} \rvert \rvert_{2}^{2} & = \sum_{j=1}^{n} F_{kj}u_{j} + \sum_{i=1}^{n} u_{i}F_{ik}  
+\end{split}
+\end{equation*}
+Puisque \( F^{T} = (A^{T}A)^{T} = A^{T} A = F \)
+On peut réécrire 
+\[ \frac{\partial }{\partial u_{i}} \lvert \lvert  A\vb{u} \rvert \rvert_{2}^{2} = 2 \sum_{j=1}^{n} F_{ij}u_{j} = 2 A^{T}A\vb{u}\]
+
+Le lagrangien s'écrit sous forme matricielle
+\[\mathcal{L}(u_{i},\lambda) = \sum_{i,j = 1}^{n} u_{i}F_{ij}u_{j} + \lambda \sum_{i=1}^{n} (u_{i}^{2}-1) \]
+
+Les dérivées sont donc, en utilisant le résultat précédent
+\begin{equation*}
+\begin{split}
+\frac{\partial \mathcal{L}}{\partial u_{i}} = 2 \sum_{j=1}^{n} G_{ij}u_{j} - 2\lambda u_{i}
+\end{split}
+\end{equation*}
+ou 
+\[ \nabla_{\vb{u}} \mathcal{L} =  \]
+
+Et
+\[ \frac{\partial \mathcal{L}}{\partial \lambda} = \sum_{i=1}^{n} u_{i}^{2}-1 \]
+\item % b)
+On trouve les points critiques en posant 
+\[ \frac{\partial \mathcal{L}}{\partial u_{i}}  = 0  \]
+et 
+\[  \frac{\partial \mathcal{L}}{\partial \lambda}  = 0 \]
+Donc, 
+\[ 2 \sum_{j=1}^{n} G_{ij}u_{j} - 2\lambda u_{i} = 0 \]
+\[ \iff \sum_{j=1}^{n} G_{ij}u_{j} = \lambda u_{i} \]
+\[ \iff G \vb{u} = A^{T}A \vb{u}= \lambda \vb{u} \]
+Donc les points critiques correspondent à un vecteur propre de \( A^{T}A \). 
+Puisque \( G \) est réelle et symétrique, elle est Hermitienne. On a montré en classe que les 
+valeurs propres d'une matrice Hermitienne sont réelles.
+
+\[ \vb{u^{*}} A^{T}A \vb{u} = \vb{u}^{*}\lambda \vb{u}  \]
+\[ \iff (A\vb{u}^{T})A\vb{u} = \lambda \vb{u}^{T}\vb{u} \]
+\[ \iff \lvert \lvert  A\vb{u} \rvert \rvert_{2}^{2} = \lambda \lvert \lvert  \vb{u} \rvert \rvert_{2}^{2} \]
+ % A REMPLIR PAR L'ETUDIANT:
+On doit donc avoir que \( \lambda \geq  0 \), car \( \lvert \lvert  A\vb{u} \rvert \rvert_{2}^{2}, \lvert \lvert  \vb{u} \rvert \rvert_{2}^{2} \geq 0 \)
+On peut donc prendre la racine des deux côtés 
+\[ \lvert \lvert A \rvert \rvert_{2} \lvert \lvert  \vb{u} \rvert \rvert_{2} \geq \lvert \lvert A\vb{u} \rvert \rvert _{2} = \sqrt{\lambda} \lvert \lvert  \vb{u} \rvert \rvert_{2}  \]
+On trouve donc bien que \( \lvert \lvert  A \rvert \rvert_{2} \geq \sqrt{\lambda} \) où \( \lambda \) est une valeur propre réelle et positive. 
+
+On a 
+\begin{equation*}
+\begin{split}
+    \lvert \lvert  A \rvert \rvert_{2} & = \sup_{\lvert \lvert  \vb{u} \rvert \rvert_{2} = 1}   \left\{\lvert \lvert  A\vb{u} \rvert \rvert_{2}\right\}\\ 
+& = \sup_{\lvert \lvert  \vb{u} \rvert \rvert_{2} = 1} \left\{\sqrt{\lambda}\lvert \lvert  \vb{u} \rvert \rvert_{2}\,|\, \text{il existe } \vb{u} \text{ tel que } A^{T}A\vb{u} = \lambda \vb{u}\right\}\\
+& = \max\left\{\sqrt{\lambda}\,|\,\text{il existe } \vb{u} \text{ tel que } A^{T}A\vb{u} = \lambda \vb{u}\right\}\\ 
+\end{split}
+\end{equation*}
+ % A REMPLIR PAR L'ETUDIANT:
+
+
+ % A REMPLIR PAR L'ETUDIANT:
+
+\end{enumerate}
+
+
+
+\end{document}
